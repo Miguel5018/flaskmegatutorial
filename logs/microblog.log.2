@@ -1,0 +1,128 @@
+2025-03-11 11:49:29,493 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
+    posts = db.paginate(current_user.following_post(),page=page,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'following_post'
+2025-03-11 11:51:30,877 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:45]
+2025-03-11 11:51:36,370 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 31, in index
+    per_page=app.config['POSTS_PER_PAGE'],error_out=False)
+             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'POSTS_PER_PAGE'
+2025-03-11 11:54:48,116 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:45]
+2025-03-11 11:54:53,202 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
+    posts = db.paginate(query,page=page,per_page=app.config['POST_PER_PAGE'],error_out=False)
+                                                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'POST_PER_PAGE'
+2025-03-11 11:54:54,427 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 35, in index
+    if post.has_prev else None
+       ^^^^
+UnboundLocalError: cannot access local variable 'post' where it is not associated with a value
+2025-03-11 11:54:55,383 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
+    posts = db.paginate(query,page=page,per_page=app.config['POST_PER_PAGE'],error_out=False)
+                                                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'POST_PER_PAGE'
+2025-03-11 11:54:57,899 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
+    posts = db.paginate(query,page=page,per_page=app.config['POST_PER_PAGE'],error_out=False)
+                                                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'POST_PER_PAGE'
