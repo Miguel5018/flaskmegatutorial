@@ -49,11 +49,11 @@
     if id %} id="{{ id }}" {% endif -%} {%- if novalidate %} novalidate{% endif -%}>
     {{ form.hidden_tag() }}
     {%- for field, errors in form.errors.items() %}
-    {%- if form[field].widget.input_type == 'hidden' %}
-    {%- for error in errors %}
-    <div class="invalid-feedback">{{ error }}</div>
-    {%- endfor %}
-    {%- endif %}
+        {%- if form[field].widget.input_type == 'hidden' %}
+            {%- for error in errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {%- endfor %}
+        {%- endif %}
     {%- endfor %}
 
     {% set ns = namespace(first_field=true) %}
