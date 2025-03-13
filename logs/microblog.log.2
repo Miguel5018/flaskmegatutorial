@@ -1,4 +1,4 @@
-2025-03-11 12:03:03,774 ERROR: Exception on /user/Gerardo [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+2025-03-13 09:13:13,148 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,9 +15,31 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 89, in user
-    return render_template("user.html", user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 97, in user
+    current_user = current_user
+                   ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'current_user' where it is not associated with a value
+2025-03-13 09:15:33,713 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 09:15:36,697 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 103, in user
+    return render_template("user.html", user=user, posts=posts, form=form, current_user_id = current_user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -37,10 +59,12 @@ Traceback (most recent call last):
     self.handle_exception(source=source_hint)
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\flaskmegatutorial\app\templates\user.html", line 45, in template
-    {% endif %}
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2025-03-11 12:03:47,826 ERROR: Exception on /user/Gerardo [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+  File "C:\flaskmegatutorial\app\templates\user.html", line 15, in template
+    {{ if user.id != current_user_id }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got 'user'
+2025-03-13 09:16:16,810 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 09:16:20,881 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,9 +81,9 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 89, in user
-    return render_template("user.html", user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 103, in user
+    return render_template("user.html", user=user, posts=posts, form=form, current_user_id = current_user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,26 +103,7 @@ Traceback (most recent call last):
     self.handle_exception(source=source_hint)
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\flaskmegatutorial\app\templates\user.html", line 45, in template
-    {% endif %}
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2025-03-11 12:04:34,690 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:45]
-2025-03-11 12:26:20,213 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-11 12:37:02,598 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-11 12:52:31,698 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-11 12:59:08,530 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-11 13:07:48,096 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-11 13:49:32,308 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 08:34:29,575 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 08:41:48,908 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 08:46:02,280 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 09:02:22,978 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 10:34:43,676 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 10:38:17,071 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:47]
-2025-03-12 11:40:18,685 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 11:41:43,572 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:06:14,213 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:21:21,792 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:32:37,632 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:34:32,175 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:44:24,354 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+  File "C:\flaskmegatutorial\app\templates\user.html", line 15, in template
+    {{% if user.id != current_user_id %}}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected '%'

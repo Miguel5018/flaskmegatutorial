@@ -2,13 +2,21 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler, SMTPHandler
 
-from flask import Flask
+from flask import Flask, request  # noqa: F401
+from flask_babel import Babel
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
+from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 
 from confing import Config
+
+
+def get_locale():
+    # return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return "es"
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -18,6 +26,9 @@ login = LoginManager(app)
 login = LoginManager(app)
 login.login_view = "login"
 mail = Mail(app)
+moment = Moment(app)
+
+babel = Babel(app, locale_selector=get_locale)
 
 
 if not app.debug:
@@ -54,7 +65,6 @@ if not app.debug:
 
     app.logger.setLevel(logging.INFO)
     app.logger.info("Microblog startup")
-
 
 
 from app import routes, models, errors

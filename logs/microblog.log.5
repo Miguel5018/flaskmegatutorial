@@ -1,4 +1,4 @@
-2025-03-11 11:47:28,523 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+2025-03-13 08:45:46,449 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,11 +15,32 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
-    posts = db.paginate(current_user.following_post(),page=page,
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'following_post'
-2025-03-11 11:47:29,846 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
+    return render_template("user.html", user=user, posts=posts, form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flaskmegatutorial\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\flaskmegatutorial\app\templates\base.html", line 60, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\templates\user.html", line 14, in block 'content'
+    {% if user.is_followed_by(current_user) %}  <!-- Esta condición revisa si el usuario actual está siguiendo a este usuario -->
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'is_followed_by'
+2025-03-13 08:45:46,626 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -36,12 +57,32 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
-    posts = db.paginate(query,page=page,per_page=app.confing['POST_PER_PAGE'],error_out=False)
-                                                 ^^^^^^^^^^^
-AttributeError: 'Flask' object has no attribute 'confing'
-2025-03-11 11:48:16,152 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:45]
-2025-03-11 11:48:21,188 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
+    return render_template("user.html", user=user, posts=posts, form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flaskmegatutorial\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\flaskmegatutorial\app\templates\base.html", line 60, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\templates\user.html", line 14, in block 'content'
+    {% if user.is_followed_by(current_user) %}  <!-- Esta condición revisa si el usuario actual está siguiendo a este usuario -->
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'is_followed_by'
+2025-03-13 08:45:46,767 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -58,71 +99,28 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
-    posts = db.paginate(query,page=page,per_page=app.confing['POST_PER_PAGE'],error_out=False)
-                                                 ^^^^^^^^^^^
-AttributeError: 'Flask' object has no attribute 'confing'
-2025-03-11 11:49:19,535 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:45]
-2025-03-11 11:49:22,891 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
-    posts = db.paginate(current_user.following_post(),page=page,
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'following_post'
-2025-03-11 11:49:25,261 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
-    posts = db.paginate(current_user.following_post(),page=page,
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'following_post'
-2025-03-11 11:49:27,195 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
-    posts = db.paginate(current_user.following_post(),page=page,
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'following_post'
+  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
+    return render_template("user.html", user=user, posts=posts, form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flaskmegatutorial\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\flaskmegatutorial\app\templates\base.html", line 60, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\templates\user.html", line 14, in block 'content'
+    {% if user.is_followed_by(current_user) %}  <!-- Esta condición revisa si el usuario actual está siguiendo a este usuario -->
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'is_followed_by'

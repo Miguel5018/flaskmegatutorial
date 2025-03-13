@@ -1,4 +1,4 @@
-2025-03-11 11:43:41,777 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+2025-03-12 12:51:20,665 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,11 +15,35 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
-    posts = db.paginate(query,page=page,per_page=app.confing['POST_PER_PAGE'],error_out=False)
-                                                 ^^^^^^^^^^^
-AttributeError: 'Flask' object has no attribute 'confing'
-2025-03-11 11:43:42,882 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
+    return render_template("user.html", user=user, posts=posts, form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flaskmegatutorial\app\templates\user.html", line 17, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2025-03-12 12:52:54,341 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 08:26:20,878 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 08:40:22,782 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 08:40:26,691 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -36,11 +60,33 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
-    posts = db.paginate(current_user.following_post(),page=page,
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'following_post'
-2025-03-11 11:43:43,461 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
+    return render_template("user.html", user=user, posts=posts, form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flaskmegatutorial\app\templates\user.html", line 18, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2025-03-13 08:41:39,858 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 08:41:41,206 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,70 +103,29 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
-    posts = db.paginate(query,page=page,per_page=app.confing['POST_PER_PAGE'],error_out=False)
-                                                 ^^^^^^^^^^^
-AttributeError: 'Flask' object has no attribute 'confing'
-2025-03-11 11:43:43,893 ERROR: Exception on /index [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 30, in index
-    posts = db.paginate(current_user.following_post(),page=page,
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'following_post'
-2025-03-11 11:43:44,308 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
-    posts = db.paginate(query,page=page,per_page=app.confing['POST_PER_PAGE'],error_out=False)
-                                                 ^^^^^^^^^^^
-AttributeError: 'Flask' object has no attribute 'confing'
-2025-03-11 11:43:45,080 ERROR: Exception on /explore [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 160, in explore
-    posts = db.paginate(query,page=page,per_page=app.confing['POST_PER_PAGE'],error_out=False)
-                                                 ^^^^^^^^^^^
-AttributeError: 'Flask' object has no attribute 'confing'
+  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
+    return render_template("user.html", user=user, posts=posts, form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flaskmegatutorial\app\templates\user.html", line 18, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2025-03-13 08:42:43,759 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]

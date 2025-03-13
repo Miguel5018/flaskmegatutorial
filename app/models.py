@@ -95,6 +95,20 @@ class User(UserMixin, db.Model):
             .group_by(Post)
             .order_by(Post.timestamp.desc())
         )
+    
+    def posts_user(self):
+        Author = so.aliased(User)
+        return(
+            sa.select(Post)
+            .join(Post.author.of_type(Author))
+            .where(
+                sa.or_(
+                    Author.id == self.id
+                )
+            )
+            .group_by(Post)
+            .order_by(Post.timestamp.desc())
+        )
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(

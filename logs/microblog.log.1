@@ -1,4 +1,4 @@
-2025-03-12 12:44:28,248 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+2025-03-13 09:16:21,827 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,9 +15,9 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
-    return render_template("user.html", user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\routes.py", line 103, in user
+    return render_template("user.html", user=user, posts=posts, form=form, current_user_id = current_user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -37,11 +37,14 @@ Traceback (most recent call last):
     self.handle_exception(source=source_hint)
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\flaskmegatutorial\app\templates\user.html", line 18, in template
-    {% else %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2025-03-12 12:48:46,186 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:48:48,413 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
+  File "C:\flaskmegatutorial\app\templates\user.html", line 15, in template
+    {{% if user.id != current_user_id %}}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected '%'
+2025-03-13 09:16:44,014 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+2025-03-13 09:42:26,751 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:58]
+2025-03-13 09:45:52,923 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:58]
+2025-03-13 09:45:53,970 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -58,72 +61,41 @@ Traceback (most recent call last):
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
-    return render_template("user.html", user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
+  File "C:\flaskmegatutorial\app\routes.py", line 103, in user
+    return render_template("user.html", user=user, posts=posts, form=form, current_user_id = current_user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
   File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\flaskmegatutorial\app\templates\user.html", line 18, in template
-    {% else %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2025-03-12 12:50:34,837 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
-2025-03-12 12:50:39,858 ERROR: Exception on /user/Gerardo Salvador [GET] [in C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\app\routes.py", line 92, in user
-    return render_template("user.html", user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask\templating.py", line 149, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-  File "C:\flaskmegatutorial\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\flaskmegatutorial\app\templates\user.html", line 17, in template
-    {% else %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2025-03-12 12:51:17,646 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:56]
+  File "C:\flaskmegatutorial\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\flaskmegatutorial\app\templates\base.html", line 60, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\templates\user.html", line 37, in block 'content'
+    {% include '_post.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\app\templates\_post.html", line 12, in top-level template code
+    says: {{ moment(post.timestamp).fromNow() }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_moment\__init__.py", line 237, in fromNow
+    return self._render("fromNow", no_suffix=int(no_suffix),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_moment\__init__.py", line 194, in _render
+    t = self._timestamp_as_iso_8601(self.timestamp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\flaskmegatutorial\.venv\Lib\site-packages\flask_moment\__init__.py", line 190, in _timestamp_as_iso_8601
+    return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
+           ^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
+2025-03-13 09:47:01,841 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:58]
+2025-03-13 09:47:25,977 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:58]
+2025-03-13 09:48:12,462 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:58]
+2025-03-13 09:49:53,399 INFO: Microblog startup [in C:\flaskmegatutorial\app\__init__.py:58]
