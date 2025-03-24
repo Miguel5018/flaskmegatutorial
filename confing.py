@@ -20,4 +20,4 @@ class Config:
     LANGUAGES = ["en"]
     POSTS_PER_PAGE = 25
     MS_TRANSLATOR_KEY = "BQ9a3jeqozmTa1hzmhOpjpdDJ0LxYlbuyTICJn3col6zVKvIcF1sJQQJ99BCACYeBjFXJ3w3AAAbACOGdIwt"
-    ELASTICSEARCH_URL = "http://localhost:9200"
+    ELASTICSEARCH_URL = "http://elasticsearch:9200"
