@@ -2,6 +2,7 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler, SMTPHandler
 
+import rq
 from elasticsearch import Elasticsearch
 from flask import Flask, current_app, request
 from flask_babel import Babel
@@ -11,6 +12,7 @@ from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
+from redis import Redis
 
 from confing import Config
 
@@ -39,6 +41,9 @@ def create_app(config_class=Config):
     mail.init_app(app)
     moment.init_app(app)
     babel.init_app(app, locale_selector=get_locale)
+
+    app.redis = Redis.from_url(app.config['REDIS_URL'])
+    app.task_queue = rq.Queue('microblo-tasks',connection=app.redis)
 
     from app.errors import bp as errors_bp
 
