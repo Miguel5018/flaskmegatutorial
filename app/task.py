@@ -3,27 +3,12 @@ import sys
 import time
 
 import sqlalchemy as sa
-import sqlalchemy.orm as so
 from flask import render_template
 from rq import get_current_job
 
 from app import create_app, db
 from app.email import send_email
 from app.models import Post, Task, User
-
-
-def example(seconds):
-    job = get_current_job()
-    print('Starting task')
-    for i in range(seconds):
-        job.meta['progress'] = 100.0 * i / seconds
-        job.save_meta()
-        print(i)
-        time.sleep(1)
-    job.meta['progress'] = 100
-    job.save_meta()
-    print('Task completed')
-
 
 app = create_app()
 app.app_context().push()
@@ -41,7 +26,8 @@ def _set_task_progress(progress):
             task.complete = True
         db.session.commit()
 
-def export_post(user_id):
+
+def export_posts(user_id):
     try:
         user = db.session.get(User, user_id)
         _set_task_progress(0)
@@ -65,10 +51,8 @@ def export_post(user_id):
             attachments=[('posts.json', 'application/json',
                           json.dumps({'posts': data}, indent=4))],
             sync=True)
-
     except Exception:
-        print('')
         _set_task_progress(100)
-        app.logger.error('Unhandled exception',exc_info=sys.exc_info())
+        app.logger.error('Unhandled exception', exc_info=sys.exc_info())
     finally:
         _set_task_progress(100)

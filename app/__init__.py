@@ -43,7 +43,7 @@ def create_app(config_class=Config):
     babel.init_app(app, locale_selector=get_locale)
 
     app.redis = Redis.from_url(app.config['REDIS_URL'])
-    app.task_queue = rq.Queue('microblo-tasks',connection=app.redis)
+    app.task_queue = rq.Queue('microblog-tasks', connection=app.redis)
 
     
     from app.api import bp as api_bp
